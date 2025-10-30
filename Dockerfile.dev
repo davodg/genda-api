@@ -1,0 +1,12 @@
+FROM golang:1.23.4-bullseye
+
+RUN go install github.com/air-verse/air@latest   
+
+RUN go install -tags 'postgres' github.com/golang-migrate/migrate/v4/cmd/migrate@latest
+
+RUN apt update && apt upgrade -y && \
+    apt install -y openssh-client
+
+WORKDIR /app
+
+CMD air
