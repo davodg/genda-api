@@ -27,5 +27,6 @@ func API(build string, shutdown chan os.Signal, log *log.Logger, postgresDB *sql
 
 	a = routes.UserRoutes(a, postgresDB, basePermissions)
 	a = routes.StoreRoutes(a, postgresDB, basePermissions)
+	a = routes.SubscriptionRoutes(a, postgresDB, basePermissions)
 	return a
 }
